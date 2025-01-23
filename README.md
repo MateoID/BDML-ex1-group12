@@ -8,7 +8,7 @@ This repository will serve as a template for the in-class exercise of january 22
 # Team Members
 Write below the names of the team members with your university code.
 - Lina Maria Alvarez Ardila  
-- Mateo Isaza
+- Mateo Isaza Díaz
 - Amalia Vargas Guayacan 
 - Sara Rocio Rojas Gomez
 
