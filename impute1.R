@@ -1,9 +1,12 @@
-mode_y <- as.numeric(names(sort(table(db$y_salary_m), decreasing = TRUE)[1]))
-
-# Imputing the missing value. 
 db <- db  %>%
-  mutate(y_salary_m = ifelse(is.na(y_salary_m) == TRUE, mode_y, y_salary_m))
+  mutate(ingtot = ifelse(is.na(ingtot) == TRUE, median(db$ingtot, na.rm = TRUE) , ingtot))
 
-# total income in millions
-db <- db  %>%
-  mutate(ingtot = ingtot/1000000)
+db = db %>% 
+     group_by(directorio) %>% 
+     mutate(mean_y_total_m = median(y_total_m,na.rm=T))
+
+# Imputing the missing value.
+db = db %>%
+     mutate(y_total_m = ifelse(test = is.na(y_total_m)==T,
+                               yes = mean_y_total_m,
+                               no = y_total_m))
